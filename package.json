@@ -1,6 +1,5 @@
 {
   "name": "alkemy_heroes",
-  "proxy": "https://superheroapi.com",
   "version": "0.0.0",
   "private": "true",
   "scripts": {
