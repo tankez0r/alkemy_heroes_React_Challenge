@@ -1,14 +1,14 @@
 import React from "react";
 import { Fragment } from "react";
-import Heroteam from "./Heroteam";
+import Heroes from "./Heroes";
 import Navbar from "./Navbar";
 
 const Dashboard = () => {
   return (
-    <Fragment>
+    <div className="App-header">
       <Navbar />
-      <Heroteam />
-    </Fragment>
+      <Heroes />
+    </div>
   );
 };
 

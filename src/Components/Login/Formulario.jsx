@@ -13,7 +13,13 @@ const Formulario = ({ setlogin, spinner }) => {
   });
 
   const data = useContext(UserContext);
-  const { verror } = data;
+  const { validation } = data;
+const userValisvalid = () => { if (validation === false ){
+ return <span className="error-span">
+              El usuario o la contraseña son incorrectos
+            </span>
+} else {null}}
+ 
   return (
     <Formik
       initialValues={{ email: "", password: "", complete: false }}
@@ -57,11 +63,7 @@ const Formulario = ({ setlogin, spinner }) => {
                 </button>
               )}
             </Form>
-            {verror ? (
-              <span className="error-span">
-                El usuario o la contraseña son incorrectos
-              </span>
-            ) : null}
+            {userValisvalid()}
           </div>
         </div>
       )}

@@ -11,7 +11,7 @@ function Login() {
   const [spinner, setSpinner] = useState(false);
   useEffect(() => {
     if (login.email && login.password !== "") {
-      const url = "http://challenge-react.alkemy.org/";
+      const url = "https://challenge-react.alkemy.org/";
       const APIrequest = async () => {
         try {
           setSpinner(true);
@@ -20,11 +20,14 @@ function Login() {
           let data = res.data;
           let token = data.token;
           localStorage.setItem("token", token);
-          disppatch({ type: types.vvalid });
+          dispatch({ type: types.token });
+          dispatch({ type: types.vvalid });
+          dispatch({ type: types.logon });
+          dispatch({ type: types.logon });
         } catch (error) {
           setSpinner(false);
-          console.log(error);
           dispatch({ type: types.verror });
+          dispatch({ type: types.logoff});
         }
       };
       APIrequest();
