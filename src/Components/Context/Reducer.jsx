@@ -6,13 +6,15 @@ const types = {
   logoff: "inactive session or time out",
   verror: "interface invalid user/password",
   vvalid: "interface valid user/password",
+  heroesSearch: "Search heroes"
 };
 
+
+
 const InitialUserData = {
-  token:
-    localStorage.getItem("token") === null ? "" : localStorage.getItem("token"),
+  token: "10224302307604024",
   equipo: [],
-  login: localStorage.getItem("token") === null ? false : true,
+  login: localStorage.getItem("token") === "10224302307604024" ? false : true,
   validation: null,
 };
 
@@ -21,15 +23,12 @@ const userdataReducer = (state, action) => {
     case types.token:
       return {
         ...state,
-        token:
-          localStorage.getItem("token") === null
-            ? ""
-            : localStorage.getItem("token"),
+        token: "10224302307604024",
       };
     case types.logon:
       return { ...state, login: true };
     case types.logoff:
-      localStorage.removeItem('token')
+      localStorage.removeItem("token");
 
       return { ...state, token: "", login: false };
     case types.verror:

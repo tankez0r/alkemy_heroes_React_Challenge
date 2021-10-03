@@ -4,6 +4,7 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+import UserSearch from "./Components/Context/SearchContext";
 import React from "react";
 import Login from "./Components/Login/Login";
 import error404 from "./Components/404/error404";
@@ -24,13 +25,15 @@ function App() {
             return login ? <Redirect to="/dashboard" /> : <Login />;
           }}
         />
-        <Route
-          exact
-          path="/dashboard"
-          render={() => {
-            return login ? <Dashboard /> : <Redirect to="/" />;
-          }}
-        />
+        <UserSearch>
+          <Route
+            exact
+            path="/dashboard"
+            render={() => {
+              return login ? <Dashboard /> : <Redirect to="/" />;
+            }}
+          />
+        </UserSearch>
         <Route path="/*" component={error404}></Route>
       </Switch>
     </Router>

@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 
 const Dashboard = () => {
   return (
-    <div className="App-header">
+    <div className="">
       <Navbar />
       <Heroes />
     </div>
