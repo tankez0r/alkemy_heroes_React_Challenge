@@ -6,15 +6,14 @@ const types = {
   logoff: "inactive session or time out",
   verror: "interface invalid user/password",
   vvalid: "interface valid user/password",
-  heroesSearch: "Search heroes"
+  vnull: "interface null validation",
+  heroesSearch: "Search heroes",
 };
-
-
 
 const InitialUserData = {
   token: "10224302307604024",
   equipo: [],
-  login: localStorage.getItem("token") === "10224302307604024" ? false : true,
+  login: false,
   validation: null,
 };
 
@@ -35,6 +34,8 @@ const userdataReducer = (state, action) => {
       return { ...state, validation: false };
     case types.vvalid:
       return { ...state, validation: true };
+      case types.vnull:
+      return {...state, validation: null};
     default:
       return state;
   }

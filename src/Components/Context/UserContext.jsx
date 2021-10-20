@@ -1,6 +1,4 @@
-import React from "react";
-import { createContext } from "react";
-import { useReducer } from "react";
+import React, { createContext, useReducer } from "react";
 import { userdataReducer, InitialUserData } from "./Reducer";
 
 const UserContext = createContext();

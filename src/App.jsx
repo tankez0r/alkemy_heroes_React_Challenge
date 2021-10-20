@@ -5,38 +5,31 @@ import {
   Redirect,
 } from "react-router-dom";
 import UserSearch from "./Components/Context/SearchContext";
-import React from "react";
 import Login from "./Components/Login/Login";
 import error404 from "./Components/404/error404";
 import Dashboard from "./Components/Dashboard/Dashboard";
-import { useContext } from "react";
+import React, { useContext, Fragment } from "react";
+import Post from "./Components/posteos/Post";
 import UserContext from "./Components/Context/UserContext";
 import "./style.scss";
+import Navbar from "./Components/Navbar";
 function App() {
   const data = useContext(UserContext);
   const { login } = data;
   return (
-    <Router>
-      <Switch>
-        <Route
-          exact
-          path="/"
-          render={() => {
-            return login ? <Redirect to="/dashboard" /> : <Login />;
-          }}
-        />
-        <UserSearch>
-          <Route
-            exact
-            path="/dashboard"
-            render={() => {
-              return login ? <Dashboard /> : <Redirect to="/" />;
-            }}
-          />
-        </UserSearch>
-        <Route path="/*" component={error404}></Route>
-      </Switch>
-    </Router>
+    <Fragment>
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route exact path="/" component={Dashboard} />
+          <UserSearch>
+            <Route exact path="/Login" component={Login} />
+            <Route exact path="/post" component={Post} />
+          </UserSearch>
+          <Route path="/*" component={error404}></Route>
+        </Switch>
+      </Router>
+    </Fragment>
   );
 }
 

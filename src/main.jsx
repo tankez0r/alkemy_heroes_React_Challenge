@@ -7,7 +7,8 @@ import App from "./App";
 ReactDOM.render(
   <React.StrictMode>
     <UserProvider>
-      <App />
+    
+      <App className="root " />
     </UserProvider>
   </React.StrictMode>,
   document.getElementById("root")

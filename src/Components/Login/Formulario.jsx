@@ -1,7 +1,8 @@
-import React from "react";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { Formik, Form } from "formik";
-import { TextField } from "../TextField";
+import { TextField } from "./TextField";
+import { types } from "../Context/Reducer";
+
 import * as Yup from "yup";
 import UserContext from "../Context/UserContext";
 const Formulario = ({ setlogin, spinner }) => {
@@ -13,13 +14,23 @@ const Formulario = ({ setlogin, spinner }) => {
   });
 
   const data = useContext(UserContext);
-  const { validation } = data;
-const userValisvalid = () => { if (validation === false ){
- return <span className="error-span">
-              El usuario o la contraseña son incorrectos
-            </span>
-} else {null}}
- 
+  const { validation, dispatch } = data;
+  const userValisvalid = (formik) => {
+    if (validation === false) {
+      setTimeout(() => {
+        dispatch({ type: types.vnull });
+        formik.resetForm();
+      }, 10000);
+      return (
+        <span className="error-span">
+          El usuario o la contraseña son incorrectos
+        </span>
+      );
+    } else {
+      null;
+    }
+  };
+
   return (
     <Formik
       initialValues={{ email: "", password: "", complete: false }}
@@ -29,10 +40,10 @@ const userValisvalid = () => { if (validation === false ){
       }}
     >
       {(formik) => (
-        <div className="col-7 col-lg-4 width-60 bg-gray-dark justify-content-center d-flex align-self-center py-5  ">
-          <div className="col-9 col-lg-9 d-flex flex-column  justify-content-center">
+        <div className="container mt-5 justify-content-center d-flex mh-100">
+          <div className="col-12 col-md-6 d-flex flex-column border shadow bg-primary p-4">
             <Form
-              className="d-flex flex-column  col-8 align-self-center"
+              className="d-flex flex-column  col-12 align-self-center"
               action=""
               method="post"
             >
@@ -63,7 +74,8 @@ const userValisvalid = () => { if (validation === false ){
                 </button>
               )}
             </Form>
-            {userValisvalid()}
+
+            {userValisvalid(formik)}
           </div>
         </div>
       )}

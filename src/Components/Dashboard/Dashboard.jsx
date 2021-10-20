@@ -1,13 +1,11 @@
-import React from "react";
-import { Fragment } from "react";
-import Heroes from "./Heroes";
-import Navbar from "./Navbar";
+import React,{ Fragment } from "react";
+import Posts from "../posteos/Posts";
 
 const Dashboard = () => {
+  console.log("dashboard render");
   return (
-    <div className="">
-      <Navbar />
-      <Heroes />
+    <div className="App-header">
+      <Posts />
     </div>
   );
 };

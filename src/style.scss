@@ -1,8 +1,30 @@
-@import "../node_modules/bootstrap/scss/bootstrap";
+$bootstrap-icons-font: "bootstrap-icons" !default;
+$bootstrap-icons-font-src: url("../node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2?757e8d3807317fad54e5811fd78f18c8")
+    format("woff2"),
+  url("../node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff?757e8d3807317fad54e5811fd78f18c8")
+    format("woff") !default;
 
-.App-header {
-  height: 100vh;
-  width: 100vw;
+
+
+.imagen-shadow {
+  color: rgba(255, 255, 255, 0);
+
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.48921566917782733) 69%,
+    rgba(0, 0, 0, 0.3015405991498161) 100%
+  );
+  color: white;
+  bottom: 0%;
+  width: 100%;
+  height: 41%;
+}
+
+.responsive-img {
+  height: 40vh;
+  width: 30vw;
 }
 .error {
   position: absolute;
@@ -84,7 +106,27 @@
     -webkit-transform: scaleY(1);
   }
 }
-.overflow-box{
-  overflow: scroll;
-  height: 80vh;
+.pagination__link {
+  color: red;
 }
+.pagination__link--active {
+  color: brown;
+}
+.paginacion {
+  font-size: 2rem;
+  justify-content: center;
+  list-style: none;
+  padding-left: 0;
+}
+.hv-100{
+  height: 100vh;
+
+}
+.shadow-box{
+  box-shadow: 0px 3px 8px 1px white;
+}
+
+
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/bootstrap-icons/font/bootstrap-icons";
